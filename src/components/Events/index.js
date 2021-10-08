@@ -55,22 +55,26 @@ const eventsList = [
 ]
 // Write your code here
 class Events extends Component {
-  state = {activeEventID: '', registrationStatus: ''}
+  state = {activeEventID: ''}
 
   setEventID = id => {
-    const activeEvent = eventsList.filter(event => event.id === id)
-    const registrationStatus =
-      activeEvent.length === 0 ? null : activeEvent[0].registrationStatus
-
-    this.setState({activeEventID: id, registrationStatus})
+    this.setState({activeEventID: id})
   }
 
-  setRegistrationStatus = status => {
-    this.setState({registrationStatus: status})
+  getActiveRegistrationStatus = () => {
+    const {activeEventID} = this.state
+    const activeEventDetails = eventsList.find(
+      event => event.id === activeEventID,
+    )
+
+    if (activeEventDetails) {
+      return activeEventDetails.registrationStatus
+    }
+    return ''
   }
 
   render() {
-    const {activeEventID, registrationStatus} = this.state
+    const {activeEventID} = this.state
     return (
       <div className="events-container">
         <div className="events-items-container">
@@ -88,8 +92,7 @@ class Events extends Component {
         </div>
         <div className="registration-status">
           <ActiveEventRegistrationDetails
-            registrationStatus={registrationStatus}
-            setRegistrationStatus={this.setRegistrationStatus}
+            activeRegistrationStatus={this.getActiveRegistrationStatus()}
           />
         </div>
       </div>

@@ -10,12 +10,10 @@
   font-size: 36px;
   text-align: center;
 }
-
-.Yet-to-register-container {
-  padding: 24px;
-  min-height: 100vh;
-  width: 100%;
+.view-container {
+  width: 90%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -45,14 +43,6 @@
   width: 100%;
 }
 
-.registered-container {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .registered-image {
   height: 100px;
   width: 100px;
@@ -65,16 +55,8 @@
   text-align: center;
 }
 
-.registrations-closed-container {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .registrations-closed-image {
-  width: 400px;
+  width: 100%;
   height: 400px;
   margin-bottom: 20px;
 }
